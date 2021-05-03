@@ -66,6 +66,7 @@ export const MovieProvider = (props) =>{
       })
       setCount(0);
       setNominationList([]);
+      reactLocalStorage.clear();
     }
 
 
