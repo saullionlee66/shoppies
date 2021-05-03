@@ -7,8 +7,8 @@ export const MovieContext =createContext();
 export const MovieProvider = (props) =>{
   const [movies,setMovies] = useState([]);
   const [search, setSearch] = useState("");
-  const [count,setCount] = useState(reactLocalStorage.getObject('nominationList').length || 0);
-  const [nominationList, setNominationList] = useState(reactLocalStorage.getObject('nominationList') || []);
+  const [count,setCount] = useState(reactLocalStorage.getObject('nominationList',[]).length || 0);
+  const [nominationList, setNominationList] = useState(reactLocalStorage.getObject('nominationList',[]) || []);
   const MY_KEY = 'c7690b39';
   const API = `https://www.omdbapi.com/?apikey=${MY_KEY}&type=movie&s=${search}`;
 
@@ -33,7 +33,7 @@ export const MovieProvider = (props) =>{
 
     useEffect( ()=>{
       reactLocalStorage.setObject('nominationList',nominationList);
-      console.log(reactLocalStorage.getObject('nominationList'));
+      console.log(typeof reactLocalStorage.getObject('nominationList'));
     },[nominationList])
 
     const nominateHandler = (e) =>{
