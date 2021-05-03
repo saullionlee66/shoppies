@@ -8,9 +8,9 @@ export const MovieProvider = (props) =>{
   const [movies,setMovies] = useState([]);
   const [search, setSearch] = useState("");
   const [count,setCount] = useState(reactLocalStorage.getObject('nominationList').length || 0);
-  const [nominationList, setNominationList] = useState([]);
+  const [nominationList, setNominationList] = useState(reactLocalStorage.getObject('nominationList') || []);
   const MY_KEY = 'c7690b39';
-  const API = `http://www.omdbapi.com/?apikey=${MY_KEY}&type=movie&s=${search}`;
+  const API = `https://www.omdbapi.com/?apikey=${MY_KEY}&type=movie&s=${search}`;
 
   const getMovies = async () => {
       const result = await axios.get(API);
