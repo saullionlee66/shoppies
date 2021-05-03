@@ -16,6 +16,7 @@ export const MovieProvider = (props) =>{
       const result = await axios.get(API);
       const {data} = result;
       const {Search} = data;
+      console.log("hello");
       Search && Search.map( e => {
         return e['isNominated'] = false;
       })
