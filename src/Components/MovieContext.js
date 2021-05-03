@@ -8,7 +8,7 @@ export const MovieProvider = (props) =>{
   const [movies,setMovies] = useState([]);
   const [search, setSearch] = useState("");
   const [count,setCount] = useState(reactLocalStorage.getObject('nominationList').length || 0);
-  const [nominationList, setNominationList] = useState(reactLocalStorage.getObject('nominationList') || []);
+  const [nominationList, setNominationList] = useState([]);
   const MY_KEY = 'c7690b39';
   const API = `http://www.omdbapi.com/?apikey=${MY_KEY}&type=movie&s=${search}`;
 
